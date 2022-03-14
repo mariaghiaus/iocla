@@ -13,7 +13,17 @@
 	linia n - 1, etc.
 */
 
-void reversePic(Picture *pic);
+void reversePic(Picture* pic) 
+{
+	Pixel aux;
+	for (int i = 0, h = (*pic).height; i < (*pic).height && i < h; i++, h--)
+		for (int j = 0; j < (*pic).width; j++)
+		{
+			aux = (*pic).pix_array[i][j];
+			(*pic).pix_array[i][j] = (*pic).pix_array[h][j];
+			(*pic).pix_array[h][j] = aux;
+		}
+};
 
 /*
 	TODO b
@@ -25,7 +35,16 @@ void reversePic(Picture *pic);
 	p.b = 0.11 * p.b;
 */
 
-void colorToGray(Picture *pic);
+void colorToGray(Picture* pic)
+{
+	for (int i = 0; i < (*pic).height; i++)
+		for (int j = 0; j < (*pic).width; j++)
+		{
+			(*pic).pix_array[i][j].R = (*pic).pix_array[i][j].R * 0.3;
+			(*pic).pix_array[i][j].G = (*pic).pix_array[i][j].G * 0.59;
+			(*pic).pix_array[i][j].B = (*pic).pix_array[i][j].B * 0.11;
+		}
+};
 
 /*
 	Structura unui pixel, cea a unei imagini, precum si generarea acestora
