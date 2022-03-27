@@ -6,10 +6,23 @@ int main(void)
 	int max;
 	int i;
 
-	/* TODO: Implement finding the maximum value in the vector */
 	max = v[0];
 	i = 1;
 
+loop:
+if(i == sizeof(v)/sizeof(int) - 1)
+goto end;
+if (v[i] <= max){
+	i++;
+	goto loop;
+}
+max = v[i];
+i++;
+end:;
+
 	(void) i;
 	(void) max;
+
+
+
 }
